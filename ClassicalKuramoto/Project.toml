@@ -1,0 +1,7 @@
+name = "ClassicalKuramoto"
+uuid = "38084d27-e4e5-457e-a530-e36ee1291f79"
+authors = ["Gideon Simpson <gideon.simpson@gmail.com>"]
+version = "0.1.0"
+
+[deps]
+SparseArrays = "2f01184e-e22b-5df5-ae63-d93ebab69eaf"

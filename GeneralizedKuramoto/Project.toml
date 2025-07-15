@@ -1,0 +1,8 @@
+name = "GeneralizedKuramoto"
+uuid = "ec24ca3c-0394-4b4a-9636-6d79d638c02c"
+authors = ["Gideon Simpson <gideon.simpson@gmail.com>"]
+version = "0.1.0"
+
+[deps]
+Printf = "de0858da-6303-5e67-8744-51eddeeeb8d7"
+SparseArrays = "2f01184e-e22b-5df5-ae63-d93ebab69eaf"

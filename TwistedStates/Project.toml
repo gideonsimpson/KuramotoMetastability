@@ -1,0 +1,7 @@
+name = "TwistedStates"
+uuid = "7ca674ca-6a35-45bc-8444-e632853b7970"
+authors = ["Gideon Simpson <gideon.simpson@gmail.com>"]
+version = "0.1.1"
+
+[deps]
+Printf = "de0858da-6303-5e67-8744-51eddeeeb8d7"
