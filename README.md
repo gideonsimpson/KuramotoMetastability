@@ -9,18 +9,18 @@ Several Julia packages are described below.  These are known to work with Julia 
 
 ## Classical Kuramoto
 The `ClassicalKuramoto` package includes functions for computing the energy and its gradient in the classical setting.  By classical, we mean that
-$$
+```math
 \text{Energy} = E = \sum_{j\in \mathcal{N}_i} \frac{(-1)^{1+\alpha}}{4\pi} \cos(2\pi (u_j - u_i))
-$$
+```
 where, in the above expression:
 * $\alpha = 0$ (attractive) or $\alpha =1$ (repulsive) coupling
 * $\mathcal{N}_i$ is the neighbor set of site $i$.  This can be specified in terms of `k`, the interaction range, such that all sites within distance `k` are in the neighbor set or by specifying an adjacency matrix `K`, which has nonzero entries to indicate neighbors.  The relevant functions are `energy` and `grad_energy!`
 
 ## Generalized Kuramoto
 The `GeneralizedKuramoto` package allows for more general flows of the form
-$$
+```math
 du_i = f(t, u_i)dt + \sum_{j\in \mathcal{N}_i} K_{ij}S(u_i,u_j) + dW_i.
-$$
+```
 In the above expressions,
 * $f$ is the self interaction term
 * $K$ is the adjacency matrix
