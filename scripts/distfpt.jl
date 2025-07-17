@@ -9,15 +9,15 @@ addprocs(SlurmManager())
 n_samples = 10^2;
 seed = 1000;
 
-@everywhere n = 10; # number of sites
-@everywhere k = 1; # interaction rage
-@everywhere q = 1; # initial twisted state, 
-@everywhere Δt = 1e-2;
-@everywhere β = 10.0;
-@everywhere α = 0;
-@everywhere X = 1.0;
-@everywhere tmax = 10^6;
-@everywhere Δt_save = Δt;
+@everywhere n = 10;         # number of sites
+@everywhere k = 1;          # interaction rage
+@everywhere q = 1;          # initial twisted state, 
+@everywhere Δt = 1e-2;      # time step
+@everywhere β = 10.0;       # inverse temperature
+@everywhere α = 0;          # attractive interactions
+@everywhere X = 1.0;        # spatial domain, [0,X)
+@everywhere tmax = 10^6;    # maximum time of integration
+@everywhere Δt_save = Δt;   # frequency of saves
 
 @show n;
 @show k;
@@ -25,7 +25,6 @@ seed = 1000;
 @show Δt;
 @show β;
 
-# picotte
 @everywhere modulepath = "/path/to/KuramotoMetastability";
 
 @everywhere push!(LOAD_PATH, modulepath*"/GeneralizedKuramoto");
@@ -60,7 +59,6 @@ end
     
     # prepare interaction matrix
     K = 1 / (2 * k + 1) * GraphMatrices.discrete_knn_spmatrix(n, k);
-    # K = GraphMatrices.discrete_knn_spmatrix(n, k)
 
     σ = sqrt(2/β);
     # prepare sampler
@@ -106,7 +104,7 @@ t_exit_values = [sample[1] for sample in samples];
 E_exit_values = [sample[2] for sample in samples];
 u_exit_values = [sample[3] for sample in samples];
 
-fname = replace(@sprintf("fpt2_n%d_q%d_k%d_N%d_beta%g_dt%g_tmax%g_s%d",
+fname = replace(@sprintf("fpt_n%d_q%d_k%d_N%d_beta%g_dt%g_tmax%g_s%d",
         n, q, k, n_samples, β, Δt, tmax, seed), "." => "_");
 
 jldsave(string(fname, ".jld2"); n, k, q, Δt, σ, β, α, X, tmax, Δt_save, t_exit_values, E_exit_values, u_exit_values, seed);

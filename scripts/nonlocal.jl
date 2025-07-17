@@ -17,15 +17,15 @@ using GraphMatrices
 using TwistedStates
 using ClassicalKuramoto
 
-@show k = 2;
-@show n_vals = 5 * 2 .^ (3:1:8);
-@show q = 4;
-@show n_beads = 200;
-@show Δt = 1e-2;
-flush(stdout);
+@show k = 2;                    # interaction range, k>1 is nonlocal
+@show n_vals = 5 * 2 .^ (3:1:8);# number of sites to simulate
+@show q = 4;                    # initial twisted state
+@show n_beads = 200;            # number of points to use in the string method
+@show Δt = 1e-2;                # algorithmic time step for string method
+flush(stdout); 
 
-α = 0;
-pin = true
+α = 0;                          # attractive interactions
+pin = true                      # pin the endpoints of the string
 
 E = u -> ClassicalKuramoto.energy(u, k, α);
 gradE = u -> ForwardDiff.gradient(E, u);
