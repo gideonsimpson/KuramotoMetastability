@@ -2,10 +2,12 @@
 Codes and scripts for studying metastability in a Kuramoto system.  These codes, written in Julia, were used to generate the figures in the manuscript [*Metastability in the stochastic nearest-neighbor
 Kuramoto model of coupled phase oscillators*](https://arxiv.org/abs/2412.15136) by Berglund, Medvedev, and Simpson.  Some of these codes were previously used to generate the figures in [*A numerical method for a nonlocal diffusion equation with additive noise*](https://link.springer.com/article/10.1007/s40072-022-00262-w) by Medvedev and Simpson.
 
+Data is available upon request.
+
 This work was supported in part by US NSF DMS–2111278.
 
 # Internal Julia Packages
-Several Julia packages are described below.  These are known to work with Julia 1.10.x and 1.11.x.
+Several interal Julia packages are described below.  These are known to work with Julia 1.10.x and 1.11.x.
 
 ## Classical Kuramoto
 The `ClassicalKuramoto` package includes functions for computing the energy and its gradient in the classical setting.  By classical, we mean that
